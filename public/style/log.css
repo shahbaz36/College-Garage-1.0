@@ -1,0 +1,18 @@
+
+#Top{
+    text-align: center;
+}
+
+.Top-button{
+    margin: 3%;
+}
+
+.Top-head{
+    padding: 15% 15%;
+    background-image: linear-gradient(to bottom, #034f84, rgba(198, 222, 241, 0.5)),url('log.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    
+    background-size: 100% 100%;
+    background-blend-mode: normal;
+}
