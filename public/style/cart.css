@@ -30,7 +30,7 @@
     position: sticky;
     bottom: 0;
     width: 100%;
-    background-color: #4caf50;
+    background-color:black;
     color: #fff;
     border: none;
     padding: 10px;
@@ -39,7 +39,8 @@
 }
 
 #checkoutButton:hover {
-    background-color: #388e3c;
+    background-color: #a5afa5;
+    color: black;
 }
 .cart-item {
     display: flex;
