@@ -130,7 +130,6 @@ document.querySelectorAll('.card-btns').forEach(function(button) {
         cartContainer.appendChild(cartItem);
     });
 });
-
 // Function to calculate the total price of all items in the cart
 function calculateTotalPrice() {
     var totalPrice = 0;
@@ -143,7 +142,7 @@ function calculateTotalPrice() {
         totalPrice += price * itemCount;
     });
 
-    return totalPrice.toFixed(2); 
+    return totalPrice.toFixed(2); // Format the total price to two decimal places
 }
 
 // Function to update the total price display
@@ -153,11 +152,21 @@ function updateTotalPrice() {
     totalPriceElement.textContent = '$' + totalPrice;
 }
 
+// Attach the updateTotalPrice function to cart item manipulation events
 function attachUpdateTotalPriceEvents() {
     var cartContainer = document.getElementById('cartContainer');
 
+    // Listen for events that might change the cart items
     cartContainer.addEventListener('DOMNodeInserted', updateTotalPrice);
     cartContainer.addEventListener('DOMNodeRemoved', updateTotalPrice);
 }
 
+// Call the function to attach the updateTotalPrice events
 attachUpdateTotalPriceEvents();
+
+// Attach event listener to checkout button
+document.getElementById('checkoutButton').addEventListener('click', function(event) {
+    event.preventDefault();
+    // Redirect to pay.html
+    window.location.href = 'pay.html';
+});
