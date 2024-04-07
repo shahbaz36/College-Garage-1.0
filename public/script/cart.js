@@ -130,3 +130,34 @@ document.querySelectorAll('.card-btns').forEach(function(button) {
         cartContainer.appendChild(cartItem);
     });
 });
+
+// Function to calculate the total price of all items in the cart
+function calculateTotalPrice() {
+    var totalPrice = 0;
+    var cartItems = document.querySelectorAll('.cart-item');
+
+    cartItems.forEach(function(cartItem) {
+        var priceElement = cartItem.querySelector('.product-price');
+        var price = parseFloat(priceElement.textContent.replace('$', ''));
+        var itemCount = parseInt(cartItem.querySelector('.itemCount').textContent);
+        totalPrice += price * itemCount;
+    });
+
+    return totalPrice.toFixed(2); 
+}
+
+// Function to update the total price display
+function updateTotalPrice() {
+    var totalPrice = calculateTotalPrice();
+    var totalPriceElement = document.getElementById('totalPrice');
+    totalPriceElement.textContent = '$' + totalPrice;
+}
+
+function attachUpdateTotalPriceEvents() {
+    var cartContainer = document.getElementById('cartContainer');
+
+    cartContainer.addEventListener('DOMNodeInserted', updateTotalPrice);
+    cartContainer.addEventListener('DOMNodeRemoved', updateTotalPrice);
+}
+
+attachUpdateTotalPriceEvents();
